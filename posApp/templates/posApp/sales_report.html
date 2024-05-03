@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 60px;
+            padding: 50;
+            background-color: black; /* Set background color to black */
+            color: black; /* Set text color to black */
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #fffcfc;
+            border-radius: 10px;
+            background-color: rgb(252, 252, 210);;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #979797;
+        }
+        th {
+            background-color: #ffffff;
+        }
+        td {
+            text-align: center;
+        }
+        .date-selection {
+            display: none; /* Hide the date selection */
+        }
+        button {
+            background-color: yellow; /* Set button background color to yellow */
+            color: black; /* Set button text color to black */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold; /* Make button text bold */
+        }
+        button:hover {
+            background-color: #ffff99; /* Light yellow on hover */
+        }
+        .bold {
+            font-weight: bold; /* Make text bold */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sales Report</h1>
+        <!-- Date Selection (Hidden) -->
+        <!-- Sales Table -->
+        <table id="sales-table">
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Date</th>
+                    <th>Transaction Code</th>
+                    <th>Total</th>
+                    <!-- Add more columns if needed -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for sale in sale_data %}
+                <tr>
+                    <td>{{ sale.id }}</td>
+                    <td>{{ sale.date_added }}</td>
+                    <td>{{ sale.code }}</td>
+                    <td>{{ sale.grand_total }}</td>
+                    <!-- Add more cells if needed -->
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="3" style="text-align: right;" class="bold">Grand Total:</td>
+                    <td class="bold">{{ grand_total }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="window.print()">Print Report</button>
+    </div>
+</body>
+</html>

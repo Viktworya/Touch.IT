@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .black-text {
+            color: black !important;
+        }
+        .black-logo {
+            filter: brightness(0%);
+        }
+        /* Style for the separator line */
+        .mdc-drawer__header a {
+            border-bottom: 1px solid black;
+            display: block; /* Ensure the border spans the entire width */
+        }
+    </style>
+</head>
+<body>
+    <!-- partial:partials/_sidebar.html -->
+    <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open" style="background: linear-gradient(109.6deg, rgb(250, 253, 56) 34.9%, rgb(66, 240, 233) 82.5%);">
+        <div class="mdc-drawer__header border-bottom border-light text-center">
+            <a href="{% url 'home-page' %}" class="brand-logo">
+                <!-- Apply the black-logo class to the logo -->
+                <img src="{% static 'posApp/assets/material-admin/images/touchWH-logo.png' %}" alt="Logo" style="max-width: 90px; margin-bottom: 10px;" class="black-logo">
+                <h4 class="text-center text-light" style="color: black !important;">Athena's Vapeshop <br> Point of Sale</h4>
+            </a>
+        </div>
+        <div class="mdc-drawer__content">
+            <div class="mdc-list-group">
+                <nav class="mdc-list mdc-drawer-menu">
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link black-text" href="{% url 'home-page' %}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">dashboard</i> Dashboard
+                        </a>
+                    </div>
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link black-text" href="{% url 'pos-page' %}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">payment</i>Checkout 
+                        </a>
+                    </div>
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link black-text" href="{% url 'product-page' %}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">label</i> Product List
+                        </a>
+                    </div>
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link black-text" href="{% url 'category-page' %}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">list</i> Category List
+                        </a>
+                    </div>
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link black-text" href="{% url 'sales-page' %}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">receipt</i> Sales
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </aside>
+    <!-- partial -->
+</body>
+</html>
